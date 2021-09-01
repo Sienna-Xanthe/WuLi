@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Completion;
+use App\Models\Completion11;
 use App\Models\Student;
 
 use Illuminate\Http\Request;
@@ -10,6 +11,7 @@ use Mpdf;
 
 class ExperimentController extends Controller
 {
+
     public function student(Request $request)
     {
 
@@ -82,47 +84,47 @@ class ExperimentController extends Controller
 
         if (strlen(substr(strrchr($completion_1,"."),1)) == 3) {
             $grade += 4;
-           
+
         }
         if (strlen(substr(strrchr($completion_2,"."),1)) == 3) {
             $grade += 4;
-           
+
         }
         if (strlen(substr(strrchr($completion_3,"."),1)) == 3) {
             $grade += 4;
-           
+
         }
-        
+
         if (strlen(substr(strrchr($completion_4,"."),1)) == 3) {
             $grade += 4;
-           
+
         }
         if (strlen(substr(strrchr($completion_5,"."),1)) == 3) {
             $grade += 4;
-            
+
         }
         if (strlen(substr(strrchr($completion_6,"."),1)) == 3) {
             $grade += 4;
-           
+
         }
 
         if ($completion_l1 == sprintf("%.3f",($completion_4 - $completion_1))) {
             $grade += 4;
-            
+
         }else if($completion_l1 == sprintf("%.3f",(-($completion_4 - $completion_1)))){
             $grade += 4;
         }
 
         if ($completion_l2 == sprintf("%.3f",($completion_5 - $completion_2))) {
             $grade += 4;
-            
+
         }else if($completion_l2 == sprintf("%.3f",(-($completion_5 - $completion_2)))){
             $grade += 4;
         }
 
         if ($completion_l3 == sprintf("%.3f",($completion_6 - $completion_3))) {
             $grade += 4;
-            
+
         }else if($completion_l3 == sprintf("%.3f",(-($completion_6 - $completion_3)))){
             $grade += 4;
         }
@@ -131,19 +133,19 @@ class ExperimentController extends Controller
         if($ls == sprintf("%.3f",($completion_4 - $completion_1))+sprintf("%.3f",($completion_5 - $completion_2))+sprintf("%.3f",($completion_6 - $completion_3))){
             if ($completion_m == sprintf("%.3f",(180 / $ls))) {
                 $grade += 4;
-               
-                
+
+
             }
             if ($completion_d == sprintf("%.3f", 0.000589 * $completion_m * 20)) {
                 $grade += 10;
-                
-               
+
+
             }
         }
-        
 
 
-        
+
+
         $grade = $grade + $grade_xp;
 
 
@@ -166,7 +168,7 @@ class ExperimentController extends Controller
 
 
         $student_id = $request['student_id'];
-  
+
 
         $student_a = Student::show($student_id);
 
@@ -188,7 +190,7 @@ class ExperimentController extends Controller
         $completion_pd2 = $student_b[0]->completion_pd2;
         $completion_pd3 = $student_b[0]->completion_pd3;
 
-        
+
 
 
 
@@ -222,7 +224,7 @@ class ExperimentController extends Controller
             'grade' => $grade,
             'grade_xp' => $grade_xp,
             'grade_tk' => ($grade - $grade_xp),
-             
+
 
 
             'completion_1' => sprintf("%.3f",$completion_1),
@@ -247,8 +249,8 @@ class ExperimentController extends Controller
 
 
         $mpdf = new Mpdf\Mpdf(['utf-8', 'A4', 16, '', 10, 10, 15, 15]);
-        
-    
+
+
         $mpdf->showImageErrors = true;
 
         $mpdf->WriteHTML($res);
@@ -257,4 +259,8 @@ class ExperimentController extends Controller
 
         exit;
     }
+
+
+
+
 }
