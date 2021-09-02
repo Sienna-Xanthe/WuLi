@@ -170,7 +170,11 @@ class Student extends Model
                     'completion2.ss2',
                     'completion2.ss3',
                     'completion2.ss',
-                    
+                    'completion2.xz1',
+                    'completion2.xz2',
+                    'completion2.pd1',
+                    'completion2.pd2'
+
                     
                 )->get();
 
