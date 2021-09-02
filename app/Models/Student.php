@@ -103,6 +103,7 @@ class Student extends Model
                     'completion.completion_pd2',
                     'completion.completion_pd3'
 
+
                 )->get();
 
             return $res ?
@@ -112,7 +113,5 @@ class Student extends Model
             logError('搜索错误', [$e->getMessage()]);
             return false;
         }
-
-        echo 1;
     }
 }

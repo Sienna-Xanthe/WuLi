@@ -3,13 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Models\Completion;
+use App\Models\Completion11;
 use App\Models\Student;
 
 use Illuminate\Http\Request;
 use Mpdf;
 
+
 class ExperimentController extends Controller
 {
+
     public function student(Request $request)
     {
         $student_name = $request['student_name'];
@@ -143,6 +146,7 @@ class ExperimentController extends Controller
 
 
 
+
         $grade = $grade + $grade_xp;
 
 
@@ -254,4 +258,11 @@ class ExperimentController extends Controller
 
         exit;
     }
+
+
+
 }
+
+
+
+
