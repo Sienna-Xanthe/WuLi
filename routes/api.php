@@ -32,6 +32,16 @@ Route::prefix('experiment')->group(function (){
 
     Route::get('pdf','ExperimentController@pdf');//实验pdf
 
+    
+});
+
+Route::prefix('bridge') -> group(function(){
+    Route::post('student','BridgeController@student');//学生信息
+    Route::post('completion','BridgeController@completion');//实验答题
+    Route::get('pdf','BridgeController@pdf');//实验pdf
+});
+
+
 
 
 });
@@ -46,3 +56,4 @@ Route::prefix('experiment11')->group(function (){
     Route::get('pdf11','Completion11Controller@pdf11');//实验11pdf
 
 });
+
