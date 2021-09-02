@@ -25,9 +25,13 @@ Route::prefix('experiment')->group(function (){
      */
     Route::post('student','ExperimentController@student');//学生信息
 
+
     Route::post('completion','ExperimentController@completion');//实验答题
 
+    Route::post('completion8','runController@completion8');//实验8答题
+
     Route::get('pdf','ExperimentController@pdf');//实验pdf
+
 
 
 });

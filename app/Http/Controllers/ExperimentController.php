@@ -15,7 +15,6 @@ class ExperimentController extends Controller
 
     public function student(Request $request)
     {
-
         $student_name = $request['student_name'];
         $student_level = $request['student_level'];
         $student_spec = $request['student_spec'];
@@ -147,13 +146,12 @@ class ExperimentController extends Controller
 
 
 
+
         $grade = $grade + $grade_xp;
 
 
 
         $res2 = Student::grade($student_id, $grade,$grade_xp);
-
-
 
 
         $res['res1'] = $res1;

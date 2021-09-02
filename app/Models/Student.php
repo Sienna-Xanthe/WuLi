@@ -48,7 +48,6 @@ class Student extends Model
 
         try {
 
-
             $res = Student::where('student.id', '=', $student_id)
 
                 ->update(['grade' => $grade,'grade_xp' => $grade_xp]);
@@ -105,9 +104,8 @@ class Student extends Model
                     'completion.completion_pd2',
                     'completion.completion_pd3'
 
+
                 )->get();
-
-
 
             return $res ?
                 $res :
