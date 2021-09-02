@@ -8,6 +8,8 @@ use App\Models\Student;
 use Illuminate\Http\Request;
 use phpDocumentor\Reflection\Types\Self_;
 
+use Mpdf;
+
 class runController extends Controller
 {
 
@@ -16,10 +18,10 @@ class runController extends Controller
     public function completion8(completion8Request  $request)
     {
         //gjy
-        $xz1 = $request['xzt1'];
-        $xz2 = $request['xzt2'];
-        $xz3 = $request['xzt3'];
-        $xz4 = $request['xzt4'];
+        $xz1 = $request['xz1'];
+        $xz2 = $request['xz2'];
+        $xz3 = $request['xz3'];
+        $xz4 = $request['xz4'];
    //wzh
         $rg = sprintf("%.2f",$request['rg']);
         $rm= sprintf("%.2f",$request['rm']);
@@ -323,4 +325,198 @@ class runController extends Controller
             json_success('操作成功!',null, 200) :
             json_fail('操作失败!', null, 100);
     }
+
+
+
+    public function pdf8(Request $request)
+    {
+
+        $student_id = $request['student_id'];
+        $student_a = Student::show8($student_id);
+        $student_b = json_decode($student_a);
+
+        $rg = $student_b[0]->rg;
+        $rm = $student_b[0]->rm;
+        $r1 = $student_b[0]->r1;
+        $xz1 = $student_b[0]->xz1;
+        $xz2 = $student_b[0]->xz2;
+        $xz3 = $student_b[0]->xz3;
+        $xz4 = $student_b[0]->xz4;
+
+        $reduce1 = $student_b[0]->reduce1;
+        $reduce2 = $student_b[0]->reduce2;
+        $reduce3 = $student_b[0]->reduce3;
+        $reduce4 = $student_b[0]->reduce4;
+        $reduce5 = $student_b[0]->reduce5;
+
+        $increase1 = $student_b[0]->increase1;
+        $increase2 = $student_b[0]->increase2;
+        $increase3 = $student_b[0]->increase3;
+        $increase4 = $student_b[0]->increase4;
+        $increase5 = $student_b[0]->increase5;
+
+        $average1 = $student_b[0]->average1;
+        $average2 = $student_b[0]->average2;
+        $average3 = $student_b[0]->average3;
+        $average4 = $student_b[0]->average4;
+        $average5 = $student_b[0]->average5;
+
+
+        $error1 = $student_b[0]->error1;
+        $error2 = $student_b[0]->error2;
+        $error3 = $student_b[0]->error3;
+        $error4 = $student_b[0]->error4;
+        $error5 = $student_b[0]->error5;
+
+
+
+        $red1 = $student_b[0]->red1;
+        $red2 = $student_b[0]->red2;
+        $red3 = $student_b[0]->red3;
+        $red4 = $student_b[0]->red4;
+        $red5 = $student_b[0]->red5;
+
+        $inc1 = $student_b[0]->inc1;
+        $inc2 = $student_b[0]->inc2;
+        $inc3 = $student_b[0]->inc3;
+        $inc4 = $student_b[0]->inc4;
+        $inc5 = $student_b[0]->inc5;
+
+        $ave1 = $student_b[0]->ave1;
+        $ave2 = $student_b[0]->ave2;
+        $ave3 = $student_b[0]->ave3;
+        $ave4 = $student_b[0]->ave4;
+        $ave5 = $student_b[0]->ave5;
+
+
+        $err1 = $student_b[0]->err1;
+        $err2 = $student_b[0]->err2;
+        $err3 = $student_b[0]->err3;
+        $err4 = $student_b[0]->err4;
+        $err5 = $student_b[0]->err5;
+
+
+        $student_name = $student_b[0]->student_name;
+        $student_level = $student_b[0]->student_level;
+        $student_spec = $student_b[0]->student_spec;
+        $student_year = $student_b[0]->student_year;
+        $student_class = $student_b[0]->student_class;
+        $student_num = $student_b[0]->student_num;
+        $experiment_name = $student_b[0]->experiment_name;
+        $course_name = $student_b[0]->course_name;
+        $student_date = $student_b[0]->student_date;
+        $student_teacher = $student_b[0]->student_teacher;
+        $grade = $student_b[0]->grade;
+        $grade_xp = $student_b[0]->grade_xp;
+
+
+
+
+        $res = view('dailiu', [
+            'name' => $student_name,
+            'student_level' => $student_level,
+            'student_spec' => $student_spec,
+            'student_year' => $student_year,
+            'experiment_name' => $experiment_name,
+            'course_name' => $course_name,
+            'student_date' => $student_date,
+            'student_teacher' => $student_teacher,
+            'student_num' => $student_num,
+            'student_class' => $student_class,
+            'grade' => $grade,
+            'grade_xp' => $grade_xp,
+            'grade_tk' => ($grade - $grade_xp),
+
+
+            'reduce1' => sprintf("%.3f",$reduce1),
+            'reduce2' => sprintf("%.3f",$reduce2),
+            'reduce3' => sprintf("%.3f",$reduce3),
+            'reduce4' => sprintf("%.3f",$reduce4),
+            'reduce5' => sprintf("%.3f",$reduce5),
+            'increase1' => sprintf("%.3f",$increase1),
+            'increase2' => sprintf("%.3f",$increase2),
+            'increase3' => sprintf("%.3f",$increase3),
+            'increase4' => sprintf("%.3f",$increase4),
+            'increase5' => sprintf("%.3f",$increase5),
+            'average1' => sprintf("%.3f",$average1),
+            'average2' => sprintf("%.3f",$average2),
+            'average3' => sprintf("%.3f",$average3),
+            'average4' => sprintf("%.3f",$average4),
+            'average5' => sprintf("%.3f",$average5),
+            'error1' => sprintf("%.3f",$error1),
+            'error2' => sprintf("%.3f",$error2),
+            'error3' => sprintf("%.3f",$error3),
+            'error4' => sprintf("%.3f",$error4),
+            'error5' => sprintf("%.3f",$error5),
+            'red1' => sprintf("%.3f",$red1),
+            'red2' => sprintf("%.3f",$red2),
+            'red3' => sprintf("%.3f",$red3),
+            'red4' => sprintf("%.3f",$red4),
+            'red5' => sprintf("%.3f",$red5),
+            'inc1' => sprintf("%.3f",$inc1),
+            'inc2' => sprintf("%.3f",$inc2),
+            'inc3' => sprintf("%.3f",$inc3),
+            'inc4' => sprintf("%.3f",$inc4),
+            'inc5' => sprintf("%.3f",$inc5),
+            'ave1' => sprintf("%.3f",$ave1),
+            'ave2' => sprintf("%.3f",$ave2),
+            'ave3' => sprintf("%.3f",$ave3),
+            'ave4' => sprintf("%.3f",$ave4),
+            'ave5' => sprintf("%.3f",$ave5),
+            'err1' => sprintf("%.3f",$err1),
+            'err2' => sprintf("%.3f",$err2),
+            'err3' => sprintf("%.3f",$err3),
+            'err4' => sprintf("%.3f",$err4),
+            'err5' => sprintf("%.3f",$err5),
+            'rg' => $rg,
+            'r1' => $r1,
+            'rm' => $rm,
+            'xz1' => $xz1,
+            'xz2' => $xz2,
+            'xz3' => $xz3,
+            'xz4' => $xz4,
+        ]);
+        $mpdf = new Mpdf\Mpdf(['utf-8', 'A4', 16, '', 10, 10, 15, 15]);
+        $mpdf->showImageErrors = true;
+        $mpdf->WriteHTML($res);
+        $mpdf->Output('实验报告.pdf', "I");
+        exit;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
