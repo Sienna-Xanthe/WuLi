@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\completion8Request;
 use App\Models\Completion8;
 use App\Models\Student;
 use Illuminate\Http\Request;
@@ -12,7 +13,7 @@ class runController extends Controller
 
 
    //gjy zcr wzh oys
-    public function completion8(Request  $request)
+    public function completion8(completion8Request  $request)
     {
         //gjy
         $xz1 = $request['xzt1'];
@@ -24,12 +25,9 @@ class runController extends Controller
         $rm= sprintf("%.2f",$request['rm']);
         $r1 = sprintf("%.2f",$request['r1']);
 
-
 /*
         $created_at=$request['created_at'];
         $updated_at=$request['updated_at'];*/
-
-
 
         $student_id=$request['student_id'];
         $grade_xp = $request['grade_xp'];
@@ -322,7 +320,7 @@ class runController extends Controller
         $res['res2'] = $res2;
 
         return $res?
-            json_success('操作成功!', null, 200) :
+            json_success('操作成功!',null, 200) :
             json_fail('操作失败!', null, 100);
     }
 }

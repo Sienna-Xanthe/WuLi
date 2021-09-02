@@ -86,7 +86,6 @@ class Student extends Model
                     'student.grade',
                     'student.grade_xp',
 
-
                     'completion.completion_1',
                     'completion.completion_2',
                     'completion.completion_3',
