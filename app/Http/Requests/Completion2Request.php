@@ -24,16 +24,7 @@ class Completion2Request extends FormRequest
     public function rules()
     {
         return [
-            'student_name' => 'required',
-            'student_level' => 'required',
-            'student_spec' => 'required',
-            'student_year' => 'required',
-            'student_class' => 'required',
-            'student_num' => 'required',
-            'experiment_name' => 'required',
-            'course_name' => 'required',
-            'student_date' => 'required',
-            'student_teacher' => 'required'
+            
         ];
     }
 
