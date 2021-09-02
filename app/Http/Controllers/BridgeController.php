@@ -7,6 +7,8 @@ use App\Http\Requests\StudentRequest;
 use App\Models\Completion2;
 use App\Models\Student;
 
+use Mpdf;
+
 class BridgeController extends Controller
 {
     public function student(StudentRequest $request){
@@ -57,9 +59,9 @@ class BridgeController extends Controller
         $rd1 = $request['rd1'];
         $rd2 = $request['rd2'];
         $rd3 = $request['rd3'];
-        $rchange1b = $request['rchange1a'];
-        $rchange2b = $request['rchange2a'];
-        $rchange3b = $request['rchange3a'];
+        $rchange1b = $request['rchange1b'];
+        $rchange2b = $request['rchange2b'];
+        $rchange3b = $request['rchange3b'];
         $ss1 = $request['ss1'];
         $ss2 = $request['ss2'];
         $ss3 = $request['ss3'];
@@ -70,7 +72,7 @@ class BridgeController extends Controller
  
 
 
-        $res = Completion2::establish(
+        $res1 = Completion2::establish(
             $ra1,
             $ra2,
             $ra3,
@@ -135,6 +137,7 @@ class BridgeController extends Controller
             $grade += 2;
         }
 
+        
         if($rb1 == $ra1){
             $grade += 2;
         }
@@ -145,14 +148,14 @@ class BridgeController extends Controller
             $grade += 2;
         }
 
-        if($rchange1a < 900 && $rchange1a <$rchange2a && $rchange2a < $rchange3a){
+        if($rchange1a <= 900 && $rchange1a <$rchange2a && $rchange2a < $rchange3a){
             $grade += 2;
         }
 
-        if($rchange2a < 1700 && $rchange1a <$rchange2a && $rchange2a < $rchange3a){
+        if($rchange2a <= 1700 && $rchange1a <$rchange2a && $rchange2a < $rchange3a){
             $grade += 2;
         }
-        if($rchange3a < 2300 && $rchange1a <$rchange2a && $rchange2a < $rchange3a){
+        if($rchange3a <= 2300 && $rchange1a <$rchange2a && $rchange2a < $rchange3a){
             $grade += 2;
         }
 
@@ -166,15 +169,212 @@ class BridgeController extends Controller
         if($s3 == sprintf("%.2f",(3 * $rb3/$rchange3a)) && $s3 < 99 && $s3 > 0){
             $grade += 2;
         }
-        if($s === ($s1+$s2+$s3)/3){
+        if($s === sprintf("%.2f",($s1+$s2+$s3)/3)){
             $grade += 2;
         }
+
+        
+        
+        if($rc1 > 0 && $rc1 < 9999){
+            $grade += 2;
+        }
+        if($rc2 > 0 && $rc2 < 9999){
+            $grade += 2;
+        }
+        if($rc3 > 0 && $rc3 < 9999){
+            $grade += 2;
+        }
+        if($rwait1 == $rc1){
+            $grade += 2;
+        }
+        if($rwait2 == $rc2*10){
+            $grade += 2;
+        }
+        if($rwait3 == $rc3*0.1){
+            $grade += 2;
+        }
+        if($rxx == ($rwait1 + $rwait2 + $rwait3)/3){
+            $grade += 2;
+        }
+
+        
+        if($rd1 == $rc1){
+            $grade += 2; 
+        }
+        if($rd2 == $rc2){
+            $grade += 2; 
+        }
+        if($rd3 == $rc3){
+            $grade += 2; 
+        }
+        
+        if($rchange1b < 9999 && $rchange1b > $rchange2b && $rchange1b < $rchange3b){
+            $grade += 2; 
+        }
+        if($rchange2b < 9999 && $rchange2b<$rchange1b && $rchange1b < $rchange3b){
+            $grade += 2; 
+        }
+        if($rchange3b < 9999 && $rchange2b<$rchange1b && $rchange1b < $rchange3b){
+            $grade += 2; 
+        }
+        
+        if($ss1 == sprintf("%.2f",($rd1/$rchange1b))){
+            $grade += 2; 
+        }
+        if($ss2 == sprintf("%.2f",(2*$rd2/$rchange2b))){
+            $grade += 2; 
+        }
+        if($ss3 == sprintf("%.2f",(3*$rd3/$rchange3b))){
+            $grade += 2; 
+        }
+        if($ss == sprintf("%.2f",($ss1 + $ss2 + $ss3)/3)){
+            $grade += 2;
+        }
+
         
 
+        $grade = $grade + $grade_xp;
 
+
+
+        $res2 = Student::grade($student_id, $grade,$grade_xp);
+
+        $res['res1'] = $res1;
+        $res['res2'] = $res2;
 
         return $res ? 
            json_success('操作成功',null, 200) :
            json_fail('操作失败',null,100);
+    }
+
+    public function pdf(Request $request)
+    {
+
+
+        $student_id = $request['student_id'];
+  
+
+        $student_a = Student::show2($student_id);
+
+        $student_b = json_decode($student_a);
+
+            $ra1 = $student_b[0] -> ra1;
+            $ra2 = $student_b[0] -> ra2;
+            $ra3 = $student_b[0] -> ra3;
+            $rx = $student_b[0] -> rx;
+            $rx1 = $student_b[0] -> rx1;
+            $rx2 = $student_b[0] -> rx2;
+            $rx3 = $student_b[0] -> rx3;
+            $rb1 = $student_b[0] -> rb1;
+            $rb2 = $student_b[0] -> rb2;
+            $rb3 = $student_b[0] -> rb3;
+            $rchange1a = $student_b[0] -> rchange1a;
+            $rchange2a = $student_b[0] -> rchange2a;
+            $rchange3a = $student_b[0] ->  rchange3a;
+            $s1 = $student_b[0] -> s1;
+            $s2 = $student_b[0] -> s2;
+            $s3 = $student_b[0] -> s3;
+            $s = $student_b[0] -> s;
+            $rc1 = $student_b[0] -> rc1;
+            $rc2 = $student_b[0] -> rc2;
+            $rc3 = $student_b[0] -> rc3;
+            $rwait1 = $student_b[0] -> rwait1;
+            $rwait2 = $student_b[0] -> rwait2;
+            $rwait3 = $student_b[0] -> rwait3;
+            $rxx = $student_b[0] -> rxx;
+            $rd1 = $student_b[0] -> rd1;
+            $rd2 = $student_b[0] -> rd2;
+            $rd3 = $student_b[0] -> rd3;
+            $rchange1b = $student_b[0] -> rchange1b;
+            $rchange2b = $student_b[0] -> rchange2b;
+            $rchange3b = $student_b[0] -> rchange3b;
+            $ss1 = $student_b[0] -> ss1;
+            $ss2 = $student_b[0] -> ss2;
+            $ss3 = $student_b[0] -> ss3;
+            $ss = $student_b[0] -> ss;
+        
+
+
+
+        $student_name = $student_b[0]->student_name;
+        $student_level = $student_b[0]->student_level;
+        $student_spec = $student_b[0]->student_spec;
+        $student_year = $student_b[0]->student_year;
+        $student_class = $student_b[0]->student_class;
+        $student_num = $student_b[0]->student_num;
+        $experiment_name = $student_b[0]->experiment_name;
+        $course_name = $student_b[0]->course_name;
+        $student_date = $student_b[0]->student_date;
+        $student_teacher = $student_b[0]->student_teacher;
+        $grade = $student_b[0]->grade;
+        $grade_xp = $student_b[0]->grade_xp;
+
+
+
+
+        $res = view('invoice2', [
+            'name' => $student_name,
+            'student_level' => $student_level,
+            'student_spec' => $student_spec,
+            'student_year' => $student_year,
+            'experiment_name' => $experiment_name,
+            'course_name' => $course_name,
+            'student_date' => $student_date,
+            'student_teacher' => $student_teacher,
+            'student_num' => $student_num,
+            'student_class' => $student_class,
+            'grade' => $grade,
+            'grade_xp' => $grade_xp,
+            'grade_tk' => ($grade - $grade_xp),
+
+            'ra1' => $ra1,
+            'ra2' => $ra2,
+            'ra3' => $ra3,
+            'rx' => $rx,
+            'rx1' => $rx1,
+            'rx2' => $rx2,
+            'rx3' => $rx3,
+            'rb1' => $rb1,
+            'rb2' => $rb2,
+            'rb3' => $rb3,
+            'rchange1a' => $rchange1a,
+            'rchange2a' => $rchange2a,
+            'rchange3a' => $rchange3a,
+            's1' => $s1,
+            's2' => $s2,
+            's3' => $s3,
+            's' => $s,
+            'rc1' => $rc1,
+            'rc2' => $rc2,
+            'rc3' => $rc3,
+            'rwait1' => $rwait1,
+            'rwait2' => $rwait2,
+            'rwait3' => $rwait3,
+            'rxx' => $rxx,
+            'rd1' => $rd1,
+            'rd2' => $rd2,
+            'rd3' => $rd3,
+            'rchange1b' => $rchange1b,
+            'rchange2b' => $rchange2b,
+            'rchange3b' => $rchange3b,
+            'ss1' => $ss1,
+            'ss2' => $ss2,
+            'ss3' => $ss3,
+            'ss' => $ss
+
+        ]);
+
+
+
+        $mpdf = new Mpdf\Mpdf(['utf-8', 'A4', 16, '', 10, 10, 15, 15]);
+        
+    
+        $mpdf->showImageErrors = true;
+
+        $mpdf->WriteHTML($res);
+
+        $mpdf->Output('实验报告.pdf', "I");
+
+        exit;
     }
 }
