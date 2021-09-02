@@ -32,6 +32,9 @@ Route::prefix('experiment')->group(function (){
 
     Route::get('pdf','ExperimentController@pdf');//实验pdf
 
+
+    Route::get('pdf8','runController@pdf8');//实验8pdf
+
     
 });
 

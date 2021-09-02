@@ -31,10 +31,10 @@ class completion8Request extends FormRequest
             'rm' => 'required',
             'r1' => 'required',
 
-            'xzt1' => 'required',
-            'xzt2' => 'required',
-            'xzt3' => 'required',
-            'xzt4' => 'required',
+            'xz1' => 'required',
+            'xz2' => 'required',
+            'xz3' => 'required',
+            'xz4' => 'required',
 
             'student_id' => 'required',
             'grade_xp' => 'required',
