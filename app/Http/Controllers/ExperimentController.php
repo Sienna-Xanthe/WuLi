@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StudentRequest;
 use App\Models\Completion;
 use App\Models\Completion11;
 use App\Models\Student;
@@ -13,7 +14,9 @@ use Mpdf;
 class ExperimentController extends Controller
 {
 
+
     public function student(Request $request)
+
     {
         $student_name = $request['student_name'];
         $student_level = $request['student_level'];
