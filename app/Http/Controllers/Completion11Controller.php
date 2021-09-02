@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Completion11Request;
 use App\Models\Completion11;
 use App\Models\Student;
 use Illuminate\Http\Request;
@@ -12,7 +13,7 @@ class Completion11Controller extends Controller
     /*
      * 实验11
      */
-    public function completion11(Request $request){
+    public function completion11(Completion11Request $request){
         $one_ig = $request['one_ig'];
         $one_rg = $request['one_rg'];
         $one_e = sprintf("%.1f",$request['one_e']);
