@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Completion11Request;
+use App\Http\Requests\PdfRequest;
 use App\Models\Completion11;
 use App\Models\Student;
 use Illuminate\Http\Request;
@@ -273,7 +274,7 @@ class Completion11Controller extends Controller
     }
 
 
-    public function pdf11(Request $request)
+    public function pdf11(PdfRequest $request)
     {
 
         $student_id = $request['student_id'];

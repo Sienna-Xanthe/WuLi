@@ -32,7 +32,7 @@ class Completion11Request extends FormRequest
             'two_one_r1gs' => 'required',
             'two_one_r1' => 'required',
             'two_two_rn' => 'required',
-            'two_two_im ' => 'required',
+            'two_two_im' => 'required',
             'two_two_r2gs' => 'required',
             'two_two_vm' => 'required',
             'two_two_im2' => 'required',
@@ -44,10 +44,9 @@ class Completion11Request extends FormRequest
             'two_thr_rn' => 'required',
             'two_thr_r42' => 'required',
             'two_four_e' => 'required',
-            'two_four_r4 ' => 'required',
+            'two_four_r4' => 'required',
             'two_four_rn4' => 'required',
             'two_four_r3' => 'required',
-
 
             'thr_one_r1' => 'required',
             'thr_one_ix' => 'required',
@@ -65,7 +64,6 @@ class Completion11Request extends FormRequest
             'four_one_r3' => 'required',
             'four_one_r4' => 'required',
             'four_one_ix' => 'required',
-            'student_num' => 'required',
 
             'four_two_1' => 'required',
             'four_two_2' => 'required',

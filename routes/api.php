@@ -35,7 +35,7 @@ Route::prefix('experiment')->group(function (){
 
     Route::get('pdf8','runController@pdf8');//实验8pdf
 
-    
+
 });
 
 Route::prefix('bridge') -> group(function(){
@@ -44,10 +44,6 @@ Route::prefix('bridge') -> group(function(){
     Route::get('pdf','BridgeController@pdf');//实验pdf
 });
 
-
-
-
-});
 
 Route::prefix('experiment11')->group(function (){
     /**
