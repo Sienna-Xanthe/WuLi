@@ -25,10 +25,47 @@ Route::prefix('experiment')->group(function (){
      */
     Route::post('student','ExperimentController@student');//学生信息
 
+
     Route::post('completion','ExperimentController@completion');//实验答题
 
+    Route::post('completion8','runController@completion8');//实验8答题
 
     Route::get('pdf','ExperimentController@pdf');//实验pdf
 
+
+    Route::get('pdf8','runController@pdf8');//实验8pdf
+
+
 });
-Route::get('pdf','Completion11Controller@pdf');//实验11pdf
+
+Route::prefix('bridge') -> group(function(){
+    Route::post('student','BridgeController@student');//学生信息
+    Route::post('completion','BridgeController@completion');//实验答题
+    Route::get('pdf','BridgeController@pdf');//实验pdf
+});
+
+
+
+Route::prefix('experiment11')->group(function (){
+    /**
+     * @Author: pxy,zqz
+     */
+
+    Route::post('completion11','Completion11Controller@completion11');//实验11答题
+
+    Route::get('pdf11','Completion11Controller@pdf11');//实验11pdf
+
+});
+
+
+Route::prefix('experiment1')->group(function (){
+    /**
+     * @Author: pxy,zqz
+     */
+
+    Route::post('completion1','Completion1Controller@completion1');//实验1答题
+
+    Route::get('pdf1','Completion1Controller@pdf1');//实验1pdf
+
+});
+
