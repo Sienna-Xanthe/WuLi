@@ -55,4 +55,13 @@ Route::prefix('experiment11')->group(function (){
     Route::get('pdf11','Completion11Controller@pdf11');//实验11pdf
 
 });
+Route::prefix('experiment4')->group(function (){
+    /**
+     * @Author: yjx
+     */
+    Route::post('completion4','NiuDunHuanController@completion4');//实验11答题
+
+    Route::get('pdf4','NiuDunHuanController@pdf4');//实验11pdf
+
+});//yjx
 
