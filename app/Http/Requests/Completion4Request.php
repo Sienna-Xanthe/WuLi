@@ -4,9 +4,9 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
-use Illuminate\Validation\Validator;
+use Illuminate\Contracts\Validation\Validator;
 
-class NiuDunHuanRequest extends FormRequest
+class Completion4Request extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.

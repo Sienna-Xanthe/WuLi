@@ -59,9 +59,9 @@ Route::prefix('experiment4')->group(function (){
     /**
      * @Author: yjx
      */
-    Route::post('completion4','NiuDunHuanController@completion4');//实验11答题
+    Route::post('completion4','Completion4Controller@completion4');//实验4答题
 
-    Route::get('pdf4','NiuDunHuanController@pdf4');//实验11pdf
+    Route::get('pdf4','Completion4Controller@pdf4');//实验4pdf
 
 });//yjx
 

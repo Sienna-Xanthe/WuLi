@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Completion4;
-use App\Http\Requests\NiuDunHuanRequest;
-use App\Http\Requests\PdfRequest;
-use App\Models\Student;
 
+use App\Http\Requests\Completion4Request;
+use App\Http\Requests\PdfRequest;
+use App\Models\Completion4;
+use App\Models\Student;
 use Mpdf;
 
 class Completion4Controller extends Controller
@@ -15,7 +15,7 @@ class Completion4Controller extends Controller
      * 牛顿环 -Completion4
      */
 
-    public function completion4(NiuDunHuanRequest $request){
+    public function completion4(Completion4Request $request){
 
         $n1 =sprintf("%.3f",$request['n1']);
         $n5 =sprintf("%.3f",$request['n5']);
@@ -45,7 +45,7 @@ class Completion4Controller extends Controller
         $l7=sprintf("%.3f",$request['l7']);
 
 
-        $res1 = \App\Http\Controllers\Completion4::establish(
+        $res1 = Completion4::establish(
             $n1,
             $n5,
             $n10,
@@ -202,7 +202,6 @@ class Completion4Controller extends Controller
         $l6 = $student_b[0]->l6;
         $l7 = $student_b[0]->l7;
 
-
         $student_name = $student_b[0]->student_name;
         $student_level = $student_b[0]->student_level;
         $student_spec = $student_b[0]->student_spec;
@@ -218,8 +217,7 @@ class Completion4Controller extends Controller
 
 
 
-
-        $res = view('wanyongbiao', [
+        $res = view('niudunhuan', [
             'name' => $student_name,
             'student_level' => $student_level,
             'student_spec' => $student_spec,
@@ -259,7 +257,6 @@ class Completion4Controller extends Controller
             'l5' => $l5,
             'l6' => $l6,
             'l7' => $l7,
-
 
         ]);
 

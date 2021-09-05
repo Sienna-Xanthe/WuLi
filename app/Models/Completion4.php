@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -81,8 +81,7 @@ class Completion4 extends Model
     public static function show($student_id)
     {
         try {
-
-            $res = self::
+            $res = completion4::
             join('student', 'student.id', '=', 'completion4.student_id')
                 ->where('student.id', '=', $student_id)
                 ->select(
@@ -125,6 +124,7 @@ class Completion4 extends Model
                     'l6',
                     'l7'
                 )->get();
+
             return $res ?
                 $res :
                 false;
