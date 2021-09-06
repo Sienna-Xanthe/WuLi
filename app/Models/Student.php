@@ -50,8 +50,6 @@ class Student extends Model
 
                 ->update(['grade' => $grade,'grade_xp' => $grade_xp]);
 
-
-
             return $res ?
                 $res :
                 false;
@@ -111,7 +109,7 @@ class Student extends Model
             return false;
         }
 
-        
+
     }
 
     public static function show2($student_id){
@@ -175,7 +173,7 @@ class Student extends Model
                     'completion2.pd1',
                     'completion2.pd2'
 
-                    
+
                 )->get();
 
 

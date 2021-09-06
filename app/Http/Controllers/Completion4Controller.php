@@ -16,17 +16,16 @@ class Completion4Controller extends Controller
      */
 
     public function completion4(Completion4Request $request){
-
-        $n1 =sprintf("%.3f",$request['n1']);
-        $n5 =sprintf("%.3f",$request['n5']);
-        $n10 =sprintf("%.3f",$request['n10']);
-        $n15 =sprintf("%.3f",$request['n15']);
-        $n20 =sprintf("%.3f",$request['n20']);
-        $n25 =sprintf("%.3f",$request['n25']);
-        $n30 =sprintf("%.3f",$request['30']);
-        $n35 =sprintf("%.3f",$request['n35']);
-        $n40 =sprintf("%.3f",$request['n40']);
-        $r   =sprintf("%.3f",$request['n40']);
+        $n1 =$request['n1'];
+        $n5 =$request['n5'];
+        $n10 =$request['n10'];
+        $n15 =$request['n15'];
+        $n20 =$request['n20'];
+        $n25 =$request['n25'];
+        $n30 =$request['n30'];
+        $n35 =$request['n35'];
+        $n40 =$request['n40'];
+        $r   = sprintf("%.2f",$request['r']);
         $xz1 =$request['xz1'];
         $xz2 =$request['xz2'];
         $xz3 =$request['xz3'];
@@ -36,13 +35,13 @@ class Completion4Controller extends Controller
         $pd3 =$request['pd3'];
 
         $student_id =$request['student_id'];
-        $l1=sprintf("%.3f",$request['l1']);
-        $l2=sprintf("%.3f",$request['l2']);
-        $l3=sprintf("%.3f",$request['l3']);
-        $l4=sprintf("%.3f",$request['l4']);
-        $l5=sprintf("%.3f",$request['l5']);
-        $l6=sprintf("%.3f",$request['l6']);
-        $l7=sprintf("%.3f",$request['l7']);
+        $l1=$request['l1'];
+        $l2=$request['l2'];
+        $l3=$request['l3'];
+        $l4=$request['l4'];
+        $l5=$request['l5'];
+        $l6=$request['l6'];
+        $l7=$request['l7'];
 
 
         $res1 = Completion4::establish(
@@ -77,57 +76,76 @@ class Completion4Controller extends Controller
         $grade = 0;
         $grade_xp = 0;
 
-        if ($n1 == 500.0) {
+        if (strlen(substr(strrchr($n1,"."),1)) == 3) {
             $grade += 3;
         }
-        if ( $n5 == 560.0) {
+            if (strlen(substr(strrchr($n5,"."),1)) == 3) {
             $grade += 3;
         }
-        if ($n10 == 1.5) {
-            $grade += 3;
-        }
-
-        if ($n15 == 1) {
+            if (strlen(substr(strrchr($n10,"."),1)) == 3) {
             $grade += 3;
         }
 
-        if ($n20 == 29.5) {
+            if (strlen(substr(strrchr($n15,"."),1)) == 3) {
             $grade += 3;
         }
-        if ($n25 == 28.0) {
+
+            if (strlen(substr(strrchr($n20,"."),1)) == 3) {
             $grade += 3;
         }
-        if ($n30 == 10.0) {
+            if (strlen(substr(strrchr($n25,"."),1)) == 3) {
             $grade += 3;
         }
-        if ($n35 == 1) {
+            if (strlen(substr(strrchr($n30,"."),1)) == 3) {
             $grade += 3;
         }
-        if ($n40 == 5.0) {
+            if (strlen(substr(strrchr($n35,"."),1)) == 3) {
             $grade += 3;
         }
-        if ($l1 == 57.810) {
+            if (strlen(substr(strrchr($n40,"."),1)) == 3) {
             $grade += 3;
         }
-        if ($l2 == 58.182) {
+            if (strlen(substr(strrchr($l1,"."),1)) == 3) {
             $grade += 3;
         }
-        if ($l3 == 58.410) {
+            if (strlen(substr(strrchr($l2,"."),1)) == 3) {
             $grade += 3;
         }
-        if ($l4 == 59.009) {
+            if (strlen(substr(strrchr($l3,"."),1)) == 3) {
             $grade += 3;
         }
-        if ($l5 == 59.772) {
+            if (strlen(substr(strrchr($l4,"."),1)) == 3) {
             $grade += 3;
         }
-        if ($l6 == 60.200) {
+            if (strlen(substr(strrchr($l5,"."),1)) == 3) {
             $grade += 3;
         }
-        if ($l7 == 60.738) {
+            if (strlen(substr(strrchr($l6,"."),1)) == 3) {
             $grade += 3;
         }
-        if ($r == 10.0) {
+            if (strlen(substr(strrchr($l7,"."),1)) == 3) {
+            $grade += 3;
+        }
+
+        $a1=($n1+$n5)*0.001;
+        $a2=($n10+$l1)*0.001;
+        $a3=($n15+$l2)*0.001;
+        $a4=($n20+$l3)*0.001;
+        $a5=($n25+$l4)*0.001;
+        $a6=($n30+$l5)*0.001;
+        $a7=($n35+$l6)*0.001;
+        $a8=($n40+$l7)*0.001;
+        $na=40*589*0.000000001;
+        $r1=($a3*$a3-$a1*$a1)/$na;
+        $r2=($a4*$a4-$a2*$a2)/$na;
+        $r3=($a5*$a5-$a3*$a3)/$na;
+        $r4=($a6*$a6-$a4*$a4)/$na;
+        $r5=($a7*$a7-$a5*$a5)/$na;
+        $r6=($a8*$a8-$a6*$a6)/$na;
+        $re=($r1+$r2+$r3+$r4+$r5+$r6)/6;
+
+        $re = sprintf("%.2f",$re);
+        if ($r == $re) {
             $grade += 10;
         }
         if ($xz1 == "C") {
@@ -153,10 +171,7 @@ class Completion4Controller extends Controller
             $grade_xp+= 6;
         }
 
-
         $grade = $grade + $grade_xp;
-
-
 
         $res2 = Student::grade($student_id, $grade,$grade_xp);
 
@@ -168,14 +183,12 @@ class Completion4Controller extends Controller
             json_fail('操作失败!', null, 100);
     }
 
-
     public function pdf4(PdfRequest $request)
     {
 
         $student_id = $request['student_id'];
 
         $student_a = Completion4::show($student_id);
-
         $student_b = json_decode($student_a);
         $n1 = $student_b[0]->n1;
         $n5 = $student_b[0]->n5;
@@ -260,10 +273,7 @@ class Completion4Controller extends Controller
 
         ]);
 
-
-
         $mpdf = new Mpdf\Mpdf(['utf-8', 'A4', 16, '', 10, 10, 15, 15]);
-
 
         $mpdf->showImageErrors = true;
 
