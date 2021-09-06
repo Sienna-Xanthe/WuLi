@@ -48,7 +48,7 @@ Route::prefix('bridge') -> group(function(){
 
 Route::prefix('experiment11')->group(function (){
     /**
-     * @Author: pxy,zqz
+     * @Author: pxy
      */
 
     Route::post('completion11','Completion11Controller@completion11');//实验11答题
