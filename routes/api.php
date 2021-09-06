@@ -68,4 +68,3 @@ Route::prefix('experiment1')->group(function (){
     Route::get('pdf1','Completion1Controller@pdf1');//实验1pdf
 
 });
-
