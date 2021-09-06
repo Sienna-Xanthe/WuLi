@@ -67,7 +67,6 @@ class Completion11Request extends FormRequest
             'four_one_r3' => 'required',
             'four_one_r4' => 'required',
             'four_one_ix' => 'required',
-            'student_num' => 'required',
 
             'four_two_1' => 'required',
             'four_two_2' => 'required',
