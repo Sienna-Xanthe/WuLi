@@ -130,18 +130,19 @@ class PendulumController extends Controller
         }
 
         $arrla= array($l1,$l2,$l3,$l4,$l5);
-        $la12 =array_sum($arrla)/5;
-        if($la== sprintf("%.2f",($la12))){
+        $la12 = sprintf("%.2f",(array_sum($arrla)/5));
+
+        if($la> $la12-0.02 &&  $la< (float)$la12+0.02) {
             $grade += 5;
         }
         $arrda= array($d1,$d2,$d3,$d4,$d5);
-        $da12 =array_sum($arrda)/5;
-        if($da== sprintf("%.3f",($da12))){
+        $da12 =sprintf("%.3f",(array_sum($arrda)/5));
+        if($da> $da12-0.02 &&  $da< (float)$da12+0.02){
             $grade += 5;
         }
         $arrta= array($t1,$t2,$t3,$t4,$t5);
-        $ta12 =array_sum($arrta)/5;
-        if($ta== sprintf("%.2f",($ta12))){
+        $ta12 = sprintf("%.2f",(array_sum($arrta)/5));
+        if($ta> $ta12-0.02 &&  $ta< (float)$ta12+0.02){
             $grade += 5;
         }
 
