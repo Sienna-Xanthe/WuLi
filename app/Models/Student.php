@@ -50,8 +50,6 @@ class Student extends Model
 
                 ->update(['grade' => $grade,'grade_xp' => $grade_xp]);
 
-
-
             return $res ?
                 $res :
                 false;
