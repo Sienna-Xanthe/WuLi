@@ -42,6 +42,8 @@ Route::prefix('bridge') -> group(function(){
     Route::post('student','BridgeController@student');//学生信息
     Route::post('completion','BridgeController@completion');//实验答题
     Route::get('pdf','BridgeController@pdf');//实验pdf
+
+
 });
 
 
@@ -58,6 +60,19 @@ Route::prefix('experiment11')->group(function (){
 });
 
 
+Route::prefix('pendulum')->group(function (){
+    /**
+     * @Author: wzh
+     */
+
+    Route::post('completion3','PendulumController@completion3');//实验答题
+
+    Route::get('pdf3','PendulumController@pdf3');//实验pdf
+
+});
+
+
+
 Route::prefix('experiment1')->group(function (){
     /**
      * @Author: pxy,zqz
@@ -68,3 +83,4 @@ Route::prefix('experiment1')->group(function (){
     Route::get('pdf1','Completion1Controller@pdf1');//实验1pdf
 
 });
+
