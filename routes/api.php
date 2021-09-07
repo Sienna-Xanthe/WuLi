@@ -46,9 +46,6 @@ Route::prefix('bridge') -> group(function(){
 
 
 
-
-});
-
 Route::prefix('experiment11')->group(function (){
     /**
      * @Author: pxy
