@@ -35,7 +35,7 @@ Route::prefix('experiment')->group(function (){
 
     Route::get('pdf8','runController@pdf8');//实验8pdf
 
-    
+
 });
 
 Route::prefix('bridge') -> group(function(){
@@ -45,9 +45,6 @@ Route::prefix('bridge') -> group(function(){
 });
 
 
-
-
-});
 
 Route::prefix('experiment11')->group(function (){
     /**
@@ -60,3 +57,14 @@ Route::prefix('experiment11')->group(function (){
 
 });
 
+
+Route::prefix('experiment1')->group(function (){
+    /**
+     * @Author: pxy,zqz
+     */
+
+    Route::post('completion1','Completion1Controller@completion1');//实验1答题
+
+    Route::get('pdf1','Completion1Controller@pdf1');//实验1pdf
+
+});
