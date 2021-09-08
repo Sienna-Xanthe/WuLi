@@ -19,6 +19,24 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 
+
+Route::prefix('experiment6')->group(function (){
+    /**
+     * @Author: oys
+     */
+
+    Route::post('completion6','Completion6Controller@completion6');//实验6答题
+
+    Route::get('pdf6','Completion6Controller@pdf6');//实验6pdf
+
+});
+
+
+
+
+
+
+
 Route::prefix('experiment')->group(function (){
     /**
      * @Author: Alexcutest
@@ -43,7 +61,6 @@ Route::prefix('bridge') -> group(function(){
     Route::post('completion','BridgeController@completion');//实验答题
     Route::get('pdf','BridgeController@pdf');//实验pdf
 
-});
 
 
 Route::prefix('experiment11')->group(function (){
