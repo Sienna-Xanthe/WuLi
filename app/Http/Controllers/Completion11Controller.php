@@ -6,7 +6,6 @@ use App\Http\Requests\Completion11Request;
 use App\Http\Requests\PdfRequest;
 use App\Models\Completion11;
 use App\Models\Student;
-use Illuminate\Http\Request;
 use Mpdf;
 
 class Completion11Controller extends Controller
@@ -69,7 +68,6 @@ class Completion11Controller extends Controller
 
 
         $student_id = $request['student_id'];
-
 
 
 
@@ -292,9 +290,14 @@ class Completion11Controller extends Controller
         $student_a = Completion11::show($student_id);
 
         $student_b = json_decode($student_a);
+
         $one_ig		 = $student_b[0]->one_ig;
         $one_rg		 = $student_b[0]->one_rg;
         $one_e		 = $student_b[0]->one_e;
+
+
+
+
 
         $two_one_r1	 = $student_b[0]->two_one_r1;
 
@@ -429,7 +432,7 @@ class Completion11Controller extends Controller
         $mpdf = new Mpdf\Mpdf(['utf-8', 'A4', 16, '', 10, 10, 15, 15]);
 
 
-        $mpdf->showImageErrors = true;
+        //$mpdf->showImageErrors = true;
 
         $mpdf->WriteHTML($res);
 
