@@ -226,9 +226,9 @@
             </tr>
             <tr>
                 <td style="text-align: center;"><strong>李萨如图形样例</strong></td>
-                <td style="text-align: center;"><img   src = 'https://s3.bmp.ovh/imgs/2021/09/6e07c4c81efbda8f.png' ></td>
-                <td style="text-align: center;"><img   src = 'https://s3.bmp.ovh/imgs/2021/09/83715b634be52c2f.png' ></td>
-                <td style="text-align: center;"><img   src = 'https://s3.bmp.ovh/imgs/2021/09/2bacb4117b03efd9.png' ></td>
+                <td style="text-align: center;"><img   src = "https://s3.bmp.ovh/imgs/2021/09/6e07c4c81efbda8f.png" ></td>
+                <td style="text-align: center;"><img   src = "https://s3.bmp.ovh/imgs/2021/09/83715b634be52c2f.png" ></td>
+                <td style="text-align: center;"><img   src = "https://s3.bmp.ovh/imgs/2021/09/2bacb4117b03efd9.png"></td>
             </tr>
             <tr>
                 <td style="text-align: center;"><strong>fy(Hz)</strong></td>
