@@ -34,8 +34,12 @@ class Completion6Controller extends Controller
         $rx = sprintf("%.1f",$request['rx']);
         $p1=$request['p1'];
         $p2=$request['p2'];
+        $pd1=$request['pd1'];
+        $pd2=$request['pd2'];
+        $pd3=$request['pd3'];
 
         $student_id = $request['student_id'];
+        $grade_xp=$request['grade_xp'];
 
 
         $p1score=$request['p1score'];
@@ -59,6 +63,9 @@ class Completion6Controller extends Controller
             $rx,
             $p1,
             $p2,
+            $pd1,
+            $pd2,
+            $pd3,
             $student_id
         );
         $grade = 0;
@@ -93,9 +100,6 @@ class Completion6Controller extends Controller
         if(($r4>=43.0)&&($r4<=44.0)) $grade+=5;
 
         if($rx>=20.0&&$rx<=275.0) $grade+=5;
-
-
-        $grade_xp=0;
 
         $grade=$p1score+$p2score+$grade+$grade_xp;
 
@@ -136,7 +140,17 @@ class Completion6Controller extends Controller
         $rx = $student_b[0]->rx;
         $p1	 = $student_b[0]->p1;
         $p2 = $student_b[0]->p2;
+        $pd1 = $student_b[0]->pd1;
+        if($pd1==1) $pd1="对";
+        else $pd1="错";
 
+        $pd2 = $student_b[0]->pd2;
+        if($pd2==1) $pd2="对";
+        else $pd2="错";
+
+        $pd3 = $student_b[0]->pd3;
+        if($pd3==1) $pd3="对";
+        else $pd3="错";
 
         $student_name = $student_b[0]->student_name;
         $student_level = $student_b[0]->student_level;
@@ -187,6 +201,10 @@ class Completion6Controller extends Controller
             'rx' => $rx,
             'p1' => $p1,
             'p2' => $p2,
+            'pd1' => $pd1,
+            'pd2' => $pd2,
+            'pd3' => $pd3,
+
         ]);
 
         $mpdf = new Mpdf\Mpdf(['utf-8', 'A4', 16, '', 10, 10, 15, 15]);
@@ -199,7 +217,6 @@ class Completion6Controller extends Controller
 
         exit;
     }
-
 
 
 

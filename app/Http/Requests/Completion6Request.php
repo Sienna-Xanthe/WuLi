@@ -44,6 +44,11 @@ class Completion6Request extends FormRequest
             'p1' => 'required',
             'p2' => 'required',
 
+            'pd1' => 'required',
+            'pd2' => 'required',
+            'pd3' => 'required',
+            'grade_xp' => 'required',
+
             'student_id' => 'required',
             'p1score' => 'required',
             'p2score' => 'required',

@@ -30,6 +30,9 @@ class Completion6 extends Model
         $rx,
         $p1,
         $p2,
+        $pd1,
+        $pd2,
+        $pd3,
         $student_id
     ) {
         try {
@@ -52,6 +55,9 @@ class Completion6 extends Model
                     'rx' => $rx,
                     'p1' => $p1,
                     'p2' => $p2,
+                    'pd1' => $pd1,
+                    'pd2' => $pd2,
+                    'pd3' => $pd3,
                     'student_id' => $student_id
                 ]
 
@@ -89,7 +95,6 @@ class Completion6 extends Model
                     'student.grade',
                     'student.grade_xp',
 
-
                     'ig1',
                     'rg1',
                     'e',
@@ -106,7 +111,10 @@ class Completion6 extends Model
                     'r4',
                     'rx',
                     'p1',
-                    'p2'
+                    'p2',
+                    'pd1',
+                    'pd2',
+                    'pd3'
                 )->get();
 
 
