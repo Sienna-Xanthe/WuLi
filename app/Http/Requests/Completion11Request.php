@@ -33,16 +33,19 @@ class Completion11Request extends FormRequest
             'one_rg' => 'required',
             'one_e' => 'required',
 
-            'two_one_r1gs' => 'required',
+            'two_one_rg' => 'required',
+            'two_one_ig' => 'required',
+            'two_one_im' => 'required',
+
             'two_one_r1' => 'required',
             'two_two_rn' => 'required',
             'two_two_im' => 'required',
-            'two_two_r2gs' => 'required',
+
             'two_two_vm' => 'required',
             'two_two_im2' => 'required',
             'two_two_rn2' => 'required',
             'two_two_r2' => 'required',
-            'two_thr_r4' => 'required',
+
             'two_thr_e' => 'required',
             'two_thr_im2' => 'required',
             'two_thr_rn' => 'required',

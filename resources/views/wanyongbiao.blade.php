@@ -207,7 +207,9 @@
                         &nbsp; &nbsp; &nbsp;&nbsp;①仅闭合转换开关1，此时分流电阻计算公式为：R1=Rg×Ig/(Im-Ig)
                     </P>
                     <P>
-                        &nbsp; &nbsp; &nbsp;&nbsp;②代入Rg=  Ω;Ig=  mA;Im=  mA
+
+                        &nbsp; &nbsp; &nbsp;&nbsp;②代入Rg={{$two_one_rg}}Ω；Ig={{$two_one_ig}}mA；Im={{$two_one_im}}mA
+
                     </P>
                     <P>
                         &nbsp; &nbsp; &nbsp;&nbsp;③计算出R1={{$two_one_r1}}Ω
@@ -219,8 +221,9 @@
                             &nbsp; &nbsp; &nbsp;&nbsp;①根据电路图，此时微安表内阻为:Rn=Rg//R1={{$two_two_rn}}Ω;量程为:Im={{$two_two_im}}mA
                         </P>
                         <P>
-                            &nbsp; &nbsp; &nbsp;&nbsp;②仅闭合转换开关2，此时分压电阻计算公式为:R2=Vm/Im-Rn
-                        </P>
+
+                            &nbsp; &nbsp; &nbsp;&nbsp;②仅闭合转换开关2，此时分压电阻计算公式为：R2=Vm/Im-Rn
+  </P>
                         <P>
                             &nbsp; &nbsp; &nbsp;&nbsp;③代入Vm={{$two_two_vm}}V,Im={{$two_two_im2}}mA,Rn={{$two_two_rn2}}Ω
                         </P>
@@ -232,7 +235,9 @@
                     <p>
                         3)调零电阻计算（理论值）
                         <P>
-                            &nbsp; &nbsp; &nbsp;&nbsp;①根据电路图，仅闭合转换开关3，短接红黑表笔，此时调零电阻计算公式为:R4=E/Im-Rn
+
+                            &nbsp; &nbsp; &nbsp;&nbsp;①根据电路图，仅闭合转换开关3，短接红黑表笔，此时调零电阻计算公式为：R4=E/Im-Rn
+
                         </P>
                         <P>
                             &nbsp; &nbsp; &nbsp;&nbsp;②代入E={{$two_thr_e}}V,Im={{$two_thr_im2}}mA,Rn={{$two_thr_rn}}Ω<br>

@@ -15,7 +15,7 @@ class Student extends Model
     {
 
         try {
-             Student::create(
+            $res =  Student::create(
                 [
                     'student_name' => $student_name,
                     'student_level' => $student_level,
@@ -30,8 +30,7 @@ class Student extends Model
                 ]
 
             );
-            $res = Student::where('student_num','=',$student_num)
-            ->get('id');
+
 
             return $res ?
                 $res :

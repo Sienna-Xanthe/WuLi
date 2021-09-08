@@ -17,16 +17,21 @@ class Completion11 extends Model
         $one_ig,
         $one_rg,
         $one_e,
-        $two_one_r1gs,
+
+        $two_one_rg,
+        $two_one_ig,
+        $two_one_im,
+
+
         $two_one_r1,
         $two_two_rn,
         $two_two_im,
-        $two_two_r2gs,
+
         $two_two_vm,
         $two_two_im2,
         $two_two_rn2,
         $two_two_r2,
-        $two_thr_r4,
+
         $two_thr_e,
         $two_thr_im2,
         $two_thr_rn,
@@ -64,16 +69,20 @@ class Completion11 extends Model
                     'one_ig' => $one_ig,
                     'one_rg' => $one_rg,
                     'one_e' => $one_e,
-                    'two_one_r1gs' => $two_one_r1gs,
+
+                    'two_one_rg' => $two_one_rg,
+                    'two_one_ig' => $two_one_ig,
+                    'two_one_im' => $two_one_im,
+
                     'two_one_r1' => $two_one_r1,
                     'two_two_rn' => $two_two_rn,
                     'two_two_im' => $two_two_im,
-                    'two_two_r2gs' => $two_two_r2gs,
+
                     'two_two_vm' => $two_two_vm,
                     'two_two_im2' => $two_two_im2,
                     'two_two_rn2' => $two_two_rn2,
                     'two_two_r2' => $two_two_r2,
-                    'two_thr_r4' => $two_thr_r4,
+
                     'two_thr_e' => $two_thr_e,
                     'two_thr_im2' => $two_thr_im2,
                     'two_thr_rn' => $two_thr_rn,
@@ -146,16 +155,19 @@ class Completion11 extends Model
                     'one_ig',
                     'one_rg',
                     'one_e',
-                    'two_one_r1gs',
+                    'two_one_rg',
+                    'two_one_ig',
+                    'two_one_im',
+
                     'two_one_r1',
                     'two_two_rn',
                     'two_two_im',
-                    'two_two_r2gs',
+
                     'two_two_vm',
                     'two_two_im2',
                     'two_two_rn2',
                     'two_two_r2',
-                    'two_thr_r4',
+
                     'two_thr_e',
                     'two_thr_im2',
                     'two_thr_rn',
