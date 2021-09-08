@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Completion14Request;
+use App\Http\Requests\PdfRequest;
 use App\Models\Completion14;
-
+use Mpdf;
 use App\Models\Student;
 
 
@@ -364,7 +365,7 @@ class Completion14Controller extends Controller
         $grade_xp        = $student_b[0]->grade_xp;
 
 
-        $res = view('niudunhuan', [
+        $res = view('shiboqi', [
             'name' => $student_name,
             'student_level' => $student_level,
             'student_spec' => $student_spec,
@@ -419,6 +420,7 @@ class Completion14Controller extends Controller
             'x3' => $x3
 
         ]);
+
 
         $mpdf = new Mpdf\Mpdf(['utf-8', 'A4', 16, '', 10, 10, 15, 15]);
 

@@ -84,7 +84,6 @@ Route::prefix('pendulum')->group(function (){
 });
 
 
-
 Route::prefix('experiment1')->group(function (){
     /**
      * @Author: pxy,zqz
