@@ -80,6 +80,13 @@ Route::prefix('experiment4')->group(function (){
     Route::post('completion4','Completion4Controller@completion4');//实验4答题
     Route::get('pdf4','Completion4Controller@pdf4');//实验4pdf
 });//yjx
+Route::prefix('experiment14')->group(function (){
+    /**
+     * @Author: yjx
+     */
+    Route::post('completion14','Completion14Controller@completion14');//实验14答题
+    Route::get('pdf14','Completion14Controller@pdf14');//实验14pdf
+});//yjx
 
 
 Route::prefix('pendulum')->group(function (){
@@ -92,7 +99,6 @@ Route::prefix('pendulum')->group(function (){
     Route::get('pdf3','PendulumController@pdf3');//实验pdf
 
 });
-
 
 
 Route::prefix('experiment1')->group(function (){
