@@ -9,7 +9,7 @@
     <title>Document</title>
     <style>
          h3 {
-            width:655px;margin:50px auto;
+            width:655px;
         }
         h4 {
             width:655px;margin:0px auto;
@@ -86,7 +86,7 @@
             </tr>
         </table>
 
-        <h1 style="width: 450px; margin: 50px; text-align: center;">示波器的调整与使用</h1>
+        <h1 style="width: 450px; text-align: center;">示波器的调整与使用</h1>
 
         <h3>二、实验目的</h3>
 
