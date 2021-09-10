@@ -18,7 +18,7 @@ class Approvaltotal extends Model
 
         try{
 
-            $row = Approvaltotal::select('id','student_num','student_name','experiment_name','grade_tp')
+            $row = Approvaltotal::select('id','student_num','student_name','experiment_name')
                 ->where('student_year',$student_year)
                 ->where('student_class',$student_class)
                 ->where('experiment_name',$experiment_name)
@@ -35,7 +35,6 @@ class Approvaltotal extends Model
     {
 
         try{
-
             $grade = Approvaltotal::select('grade')
             ->where('id',$id)
             ->value('grade');
@@ -114,6 +113,7 @@ class Approvaltotal extends Model
 
     public static function uurl($id)
     {
+
         try{
 
             $row = Approvaltotal::select('tp_url')

@@ -19,14 +19,15 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 
-
+/**
+ * @Author: oys
+ */
 Route::prefix('experiment6')->group(function (){
-    /**
-     * @Author: oys
-     */
+
 
     Route::post('completion6','Completion6Controller@completion6');//实验6答题
 
+    Route::get('pdf6','Completion6Controller@pdf6');//实验6pdf
 
 });
 
@@ -35,11 +36,11 @@ Route::prefix('experiment6')->group(function (){
 
 
 
-
+/**
+ * @Author: Alexcutest
+ */
 Route::prefix('experiment')->group(function (){
-    /**
-     * @Author: Alexcutest
-     */
+
     Route::post('student','ExperimentController@student');//学生信息
 
 
@@ -47,6 +48,10 @@ Route::prefix('experiment')->group(function (){
 
     Route::post('completion8','runController@completion8');//实验8答题
 
+    Route::get('pdf','ExperimentController@pdf');//实验pdf
+
+
+    Route::get('pdf8','runController@pdf8');//实验8pdf
 
 
 });
@@ -54,50 +59,62 @@ Route::prefix('experiment')->group(function (){
 Route::prefix('bridge') -> group(function(){
     Route::post('student','BridgeController@student');//学生信息
     Route::post('completion','BridgeController@completion');//实验答题
+    Route::get('pdf','BridgeController@pdf');//实验pdf
 
 });
 
+
+/**
+ * @Author: pxy
+ */
 Route::prefix('experiment11')->group(function (){
-    /**
-     * @Author: pxy
-     */
+
 
     Route::post('completion11','Completion11Controller@completion11');//实验11答题
 
+    Route::get('pdf11','Completion11Controller@pdf11');//实验11pdf
 
 });
+
+/**
+ * @Author: yjx
+ */
 Route::prefix('experiment4')->group(function (){
-    /**
-     * @Author: yjx
-     */
+
     Route::post('completion4','Completion4Controller@completion4');//实验4答题
+    Route::get('pdf4','Completion4Controller@pdf4');//实验4pdf
 });//yjx
+
+/**
+ * @Author: yjx
+ */
 Route::prefix('experiment14')->group(function (){
-    /**
-     * @Author: yjx
-     */
+
     Route::post('completion14','Completion14Controller@completion14');//实验14答题
+    Route::get('pdf14','Completion14Controller@pdf14');//实验14pdf
 });//yjx
 
-
+/**
+ * @Author: wzh
+ */
 Route::prefix('pendulum')->group(function (){
-    /**
-     * @Author: wzh
-     */
+
 
     Route::post('completion3','PendulumController@completion3');//实验答题
 
+    Route::get('pdf3','PendulumController@pdf3');//实验pdf
 
 });
 
-
+/**
+ * @Author: pxy,zqz
+ */
 Route::prefix('experiment1')->group(function (){
-    /**
-     * @Author: pxy,zqz
-     */
+
 
     Route::post('completion1','Completion1Controller@completion1');//实验1答题
 
+    Route::get('pdf1','Completion1Controller@pdf1');//实验1pdf
 
 });
 
@@ -108,12 +125,6 @@ Route::prefix('experiment1')->group(function (){
 Route::prefix('admin')->group(function (){
 
     Route::get('home','AdminController@home');//审批中心主页
-    Route::post('approval','AdminController@approval');//审批
-    Route::get('urlreturn','AdminController@urlreturn');//图片链接返回
-    Route::get('gradesshow','AdminController@gradesshow');//pdf导出页面
-    Route::get('detail','AdminController@detail');//pdf导出详情页面
-    Route::get('numsearch','AdminController@numsearch');//学号查询审批页面
-    Route::get('singleexport','AdminController@singleexport');//单个导出
 
 });
 
