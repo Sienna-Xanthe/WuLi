@@ -84,6 +84,7 @@ class ExperimentController extends Controller
 
         $grade = 0;
 
+        Student::statechange($student_id);
 
         if (strlen(substr(strrchr($completion_1,"."),1)) == 3) {
             $grade += 4;

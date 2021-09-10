@@ -124,6 +124,7 @@ class Completion11Controller extends Controller
         $grade = 0;
         $grade_xp = 0;
 
+        Student::statechange($student_id);
         if ($one_ig == 500.0) {
             $grade += 2;
         }

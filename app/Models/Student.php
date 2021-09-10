@@ -344,7 +344,23 @@ class Student extends Model
 
 
 
+    public static function statechange($id)
+    {
+        try {
 
+            $row = Student::where('id',$id);
+            if($row)
+                $row = $row->update([
+                    'state' => 2
+                ]);
+            return  $row?
+                $row :
+                false;
+        } catch (\Exception $e) {
+            logError('搜索错误', [$e->getMessage()]);
+            return false;
+        }
+    }
 
 
 

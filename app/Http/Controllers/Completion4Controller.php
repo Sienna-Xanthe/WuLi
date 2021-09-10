@@ -71,6 +71,7 @@ class Completion4Controller extends Controller
 
         );
 
+        Student::statechange($student_id);
         $grade = 0;
         $grade_xp = 0;
 

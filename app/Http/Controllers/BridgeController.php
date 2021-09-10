@@ -122,6 +122,7 @@ class BridgeController extends Controller
 
         $grade = 0;
 
+        Student::statechange($student_id);
         if(0 < $ra1 && $ra1 < 9999){
             $grade += 2;
 

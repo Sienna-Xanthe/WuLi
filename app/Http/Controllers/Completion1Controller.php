@@ -39,6 +39,7 @@ class Completion1Controller
             $r9,
             $r10
         );
+        Student::statechange($student_id);
         $grade = 0;
         $grade_xp = 0;
 

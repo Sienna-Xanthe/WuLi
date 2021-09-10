@@ -41,6 +41,7 @@ class Completion6Controller extends Controller
         $student_id = $request['student_id'];
         $grade_xp=$request['grade_xp'];
 
+        Student::statechange($student_id);
 
         $res1 = Completion6::establish(
             $ig1,

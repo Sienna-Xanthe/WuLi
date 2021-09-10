@@ -82,6 +82,7 @@ class PendulumController extends Controller
             $student_id
         );
 
+        Student::statechange($student_id);
         $grade=0;
         if (strlen(substr(strrchr($l1,"."),1)) == 2){
             $grade += 1;
@@ -207,6 +208,7 @@ class PendulumController extends Controller
     {
 
         //$student_id = $request['student_id'];
+
         $student_a = Student::show3($student_id);
         $student_b = json_decode($student_a);
 

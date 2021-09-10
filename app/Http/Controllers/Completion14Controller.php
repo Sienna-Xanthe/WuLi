@@ -97,6 +97,7 @@ class Completion14Controller extends Controller
             $x3
         );
 
+        Student::statechange($student_id);
         $grade    = 0;
         $grade_xp = 0;
         if ($b1 >= 1000 - 1000 * 0.05 && $b1 <= 1000 + 1000 * 0.05) {

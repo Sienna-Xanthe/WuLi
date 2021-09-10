@@ -119,6 +119,7 @@ class runController extends Controller
             $err5 = sprintf("%.2f", $request['err5']);
         }
 
+        Student::statechange($student_id);
         //oys
         $res1 = Completion8::establish(
             $reduce1,
@@ -332,6 +333,7 @@ class runController extends Controller
     {
 
         //$student_id = $request['student_id'];
+        Student::statechange($student_id);
         $student_a = Student::show8($student_id);
         $student_b = json_decode($student_a);
 
@@ -367,8 +369,6 @@ class runController extends Controller
         $error3 = $student_b[0]->error3;
         $error4 = $student_b[0]->error4;
         $error5 = $student_b[0]->error5;
-
-
 
         $red1 = $student_b[0]->red1;
         $red2 = $student_b[0]->red2;
