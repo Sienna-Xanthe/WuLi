@@ -428,7 +428,7 @@ class Completion14Controller extends Controller
 
         $mpdf->WriteHTML($res);
 
-        $mpdf->Output($student_num.'-'.$student_name.'-'.$experiment_name.".pdf", "D");
+        $mpdf->Output($student_num.'-'.$student_name.'-'.$experiment_name.".pdf", "I");
 
         exit;
     }

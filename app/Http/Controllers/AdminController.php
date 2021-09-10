@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\approvalRequest;
+use App\Http\Requests\numRequest;
 use App\Http\Requests\PdfRequest;
+use App\Http\Requests\tpRequest;
 use App\Models\Approvaltotal;
 use Illuminate\Http\Request;
 
@@ -15,7 +18,7 @@ class AdminController extends Controller
      * 审批中心主页
      * @param Request $request
      */
-    public function home(Request $request)
+    public function home(approvalRequest $request)
     {
         $student_year = $request['student_year'];
         $student_class = $request['student_class'];
@@ -30,7 +33,7 @@ class AdminController extends Controller
      * 审批
      * @param Request $request
      */
-    public function approval(Request $request)
+    public function approval(tpRequest $request)
     {
         $grade_tp = $request['grade_tp'];
         $id = $request['id'];
@@ -45,7 +48,7 @@ class AdminController extends Controller
      * 成绩导出页面
      * @param Request $request
      */
-    public function gradesshow(Request $request)
+    public function gradesshow(approvalRequest $request)
     {
         $student_year = $request['student_year'];
         $student_class = $request['student_class'];
@@ -65,7 +68,7 @@ class AdminController extends Controller
      * 导出详情页面
      * @param Request $request
      */
-    public function detail(Request $request)
+    public function detail(approvalRequest $request)
     {
         $student_year = $request['student_year'];
         $student_class = $request['student_class'];
@@ -80,7 +83,7 @@ class AdminController extends Controller
      * 学号查询
      * @param Request $request
      */
-    public function numsearch(Request $request)
+    public function numsearch(numRequest $request)
     {
         $student_num = $request['student_num'];
         $data = Approvaltotal::numbersearch($student_num);
@@ -128,6 +131,21 @@ class AdminController extends Controller
             $obj = new BridgeController();
             $obj->pdf($student_id);
         }
+        else if($data == "牛顿环")
+        {
+            $obj = new Completion4Controller();
+            $obj->pdf4($student_id);
+        }
+        else if($data == "大学物理实验一")
+        {
+            $obj = new Completion1Controller();
+            $obj->pdf1($student_id);
+        }
+        else if($data == "电表改装与校准")
+        {
+            $obj = new runController();
+            $obj->pdf8($data);
+        }
 
 
         return $data ?
@@ -140,7 +158,7 @@ class AdminController extends Controller
      * 图片链接返回
      * @param Request $request
      */
-    public function urlreturn(Request $request)
+    public function urlreturn(PdfRequest $request)
     {
         $id = $request['id'];
         $data = Approvaltotal::uurl($id);
