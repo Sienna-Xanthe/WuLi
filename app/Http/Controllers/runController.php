@@ -328,10 +328,10 @@ class runController extends Controller
 
 
 
-    public function pdf8(Request $request)
+    public function pdf8($student_id)
     {
 
-        $student_id = $request['student_id'];
+        //$student_id = $request['student_id'];
         $student_a = Student::show8($student_id);
         $student_b = json_decode($student_a);
 
@@ -479,7 +479,7 @@ class runController extends Controller
         $mpdf = new Mpdf\Mpdf(['utf-8', 'A4', 16, '', 10, 10, 15, 15]);
         $mpdf->showImageErrors = true;
         $mpdf->WriteHTML($res);
-        $mpdf->Output('实验报告.pdf', "I");
+        $mpdf->Output($student_num.'-'.$student_name.'-'.$experiment_name.".pdf", "I");
         exit;
     }
 

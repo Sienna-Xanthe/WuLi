@@ -165,11 +165,11 @@ class ExperimentController extends Controller
             json_fail('操作失败!', null, 100);
     }
 
-    public function pdf(Request $request)
+    public function pdf($student_id)
     {
 
 
-        $student_id = $request['student_id'];
+        //$student_id = $request['student_id'];
 
 
         $student_a = Student::show($student_id);
@@ -257,7 +257,7 @@ class ExperimentController extends Controller
 
         $mpdf->WriteHTML($res);
 
-        $mpdf->Output('实验报告.pdf', "I");
+        $mpdf->Output($student_num.'-'.$student_name.'-'.$experiment_name.".pdf", "I");
 
         exit;
     }

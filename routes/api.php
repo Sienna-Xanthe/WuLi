@@ -61,7 +61,7 @@ Route::prefix('bridge') -> group(function(){
     Route::post('completion','BridgeController@completion');//实验答题
     Route::get('pdf','BridgeController@pdf');//实验pdf
 
-
+});
 
 Route::prefix('experiment11')->group(function (){
     /**
@@ -109,6 +109,22 @@ Route::prefix('experiment1')->group(function (){
     Route::post('completion1','Completion1Controller@completion1');//实验1答题
 
     Route::get('pdf1','Completion1Controller@pdf1');//实验1pdf
+
+});
+
+
+/**
+ * @Author: pxy
+ */
+Route::prefix('admin')->group(function (){
+
+    Route::get('home','AdminController@home');//审批中心主页*
+    Route::post('approval','AdminController@approval');//审批*
+    Route::get('urlreturn','AdminController@urlreturn');//图片链接返回*
+    Route::get('gradesshow','AdminController@gradesshow');//pdf导出页面*
+    Route::get('detail','AdminController@detail');//pdf导出详情页面*
+    Route::get('numsearch','AdminController@numsearch');//学号查询审批页面*
+    Route::get('singleexport','AdminController@singleexport');//单个导出*
 
 });
 

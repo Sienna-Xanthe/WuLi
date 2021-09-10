@@ -304,10 +304,10 @@ class Completion14Controller extends Controller
             json_fail('操作失败!', null, 100);
     }
 
-    public function pdf14(PdfRequest $request)
+    public function pdf14($student_id)
     {
 
-        $student_id = $request['student_id'];
+        //$student_id = $request['student_id'];
 
         $student_a = Completion14::show($student_id);
         $student_b = json_decode($student_a);
@@ -428,7 +428,7 @@ class Completion14Controller extends Controller
 
         $mpdf->WriteHTML($res);
 
-        $mpdf->Output('实验报告.pdf', "I");
+        $mpdf->Output($student_num.'-'.$student_name.'-'.$experiment_name.".pdf", "D");
 
         exit;
     }
