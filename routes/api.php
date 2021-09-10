@@ -19,6 +19,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 
+
 /**
  * @Author: oys
  */
@@ -39,6 +40,7 @@ Route::prefix('experiment6')->group(function (){
 /**
  * @Author: Alexcutest
  */
+
 Route::prefix('experiment')->group(function (){
 
     Route::post('student','ExperimentController@student');//学生信息
@@ -85,6 +87,7 @@ Route::prefix('experiment4')->group(function (){
     Route::get('pdf4','Completion4Controller@pdf4');//实验4pdf
 });//yjx
 
+
 /**
  * @Author: yjx
  */
@@ -93,6 +96,7 @@ Route::prefix('experiment14')->group(function (){
     Route::post('completion14','Completion14Controller@completion14');//实验14答题
     Route::get('pdf14','Completion14Controller@pdf14');//实验14pdf
 });//yjx
+
 
 /**
  * @Author: wzh
@@ -106,15 +110,29 @@ Route::prefix('pendulum')->group(function (){
 
 });
 
+
 /**
  * @Author: pxy,zqz
  */
+
+
+
 Route::prefix('experiment1')->group(function (){
 
 
     Route::post('completion1','Completion1Controller@completion1');//实验1答题
 
     Route::get('pdf1','Completion1Controller@pdf1');//实验1pdf
+
+});
+Route::prefix('bridge1')->group(function (){
+    /**
+     * @Author: wzh
+     */
+
+    Route::post('completion5','Completion5Controller@completion5');//实验答题
+
+    Route::get('pdf5','Completion5Controller@pdf5');//实验pdf
 
 });
 
